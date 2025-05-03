@@ -2,7 +2,7 @@
 
 This collection of tools will be used to capture, view and alert on health status of various data sources.
 
-### SBOM: Software Bill of Materials
+### Architecture 
 ##### Data Collector (Remote Host)
 - Remote server data collector will focus on Linux server root disk, MEM and CPU info.
 - Save values as JSON file.
