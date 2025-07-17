@@ -7,6 +7,18 @@ This collection of tools will be used to capture, view and alert on health statu
 - Remote server data collector will focus on Linux server root disk, MEM and CPU info.
 - Save values as JSON file.
 - Run every # of minutes, as set by cron job?
+- Writing the script in PHP was easy because I could use PHP's json functions and Linux commands.
+
+Example Output:
+[PHP]$ cat /tmp/healthcheck.json 
+{
+    "rootDiskSpaceUsedPercent": 11,
+    "memTotalGB": 31,
+    "memFreeGB": 23,
+    "memUtilization": 74,
+    "cpuCores": 4,
+    "cpuUtilization": 2.86
+}
 
 ##### Data Server (Remote Host)
 - Python http server to share data from specific port on host. 
