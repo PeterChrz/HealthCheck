@@ -10,7 +10,8 @@ This collection of tools will be used to capture, view and alert on health statu
 - Writing the script in PHP was easy because I could use PHP's json functions and Linux commands.
 
 Example Output:
-[PHP]$ cat /tmp/healthcheck.json 
+```
+$ cat /tmp/healthcheck.json 
 {
     "rootDiskSpaceUsedPercent": 11,
     "memTotalGB": 31,
@@ -19,7 +20,7 @@ Example Output:
     "cpuCores": 4,
     "cpuUtilization": 2.86
 }
-
+```
 ##### Data Server (Remote Host)
 - Python http server to share data from specific port on host. 
 - Option to skip this custom Python http server and use NGNIX to server JSON file.
