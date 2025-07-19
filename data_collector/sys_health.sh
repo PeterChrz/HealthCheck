@@ -1,7 +1,7 @@
 #! /bin/bash
 
 ## CPU INFO ##
---------------
+#--------------
 #total_cpu=$(cat /proc/cpuinfo | tail -50 | grep proc | awk '{ print $3 }')
 #total_cpu=$(( total_cpu + 1 ))
 

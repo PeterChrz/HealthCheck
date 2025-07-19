@@ -8,20 +8,39 @@ if [ ! -f "$SCRIPT_PATH" ]; then
 	exit 1
 fi
 
+## Check if PHP exists
+if command -v php >/dev/null 2>&1; then
+	echo "PHP is already installed."
+	echo $(which php)
+
+else
+
+	if command -v apt >/dev/null 2>&1; then
+		echo "Installing PHP"
+		sleep 3
+		sudo apt install php -y
+		echo $(which php)
+
+	elif command -v rpm >/dev/null 2>&1; then
+		echo "Installing PHP"
+		sleep 3
+		sudo cp bin/php /usr/local/bin/php
+		echo $(which php)
+
+	else
+		echo "Could not detect valid package manager or PHP."
+		echo "Please install PHP manually"
+		echo "(which php) required working"
+		sleep 3
+		exit 1
+	fi
+fi
+
 ## Define Service and Time Filenames
 SERVICE_NAME="syshealth"
 SERVICE_FILE="/etc/systemd/system/${SERVICE_NAME}.service"
 TIMER_FILE="/etc/systemd/system/${SERVICE_NAME}.timer"
 PHP_PATH="$(which php)"
-
-
-## Check if PHP exists
-if [ -z "$PHP_PATH" ] || [ ! -x "$PHP_PATH" ]; then
-	echo "PHP is not found in your PATH."
-	echo "Unable to continue setup."
-	echo "Please install PHP and try again."
-	exit 1
-fi 
 
 ## Create .service File
 sudo tee "$SERVICE_FILE" > /dev/null <<EOF
